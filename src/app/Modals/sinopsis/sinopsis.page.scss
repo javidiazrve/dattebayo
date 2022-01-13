@@ -1,0 +1,46 @@
+p {
+    height: 85%;
+    padding: 15px;
+    overflow: scroll;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: justify;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+p::-webkit-scrollbar {
+    display: none;
+}
+
+h3 {
+    padding: 15px;
+    font-size: 25px;
+    padding-bottom: 0;
+}
+
+p,
+h3 {
+    color: white !important;
+}
+
+ion-img {
+    max-height: 300px;
+    object-fit: fill;
+    height: 100%;
+}
+
+@media only screen and (min-width: 750px) {
+    ion-img {
+        object-fit: cover;
+    }
+    h3 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+    p {
+        font-size: 20px;
+    }
+}

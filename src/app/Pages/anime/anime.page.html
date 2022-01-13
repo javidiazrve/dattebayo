@@ -1,0 +1,102 @@
+<ion-content scrollY="false" class="dark">
+    <div *ngIf="anime" style="height: 100%;">
+        <ion-button fill="clear" id="btnFavorito" color="danger" (click)="switchFavorito(anime._id)" *ngIf="!cargando">
+            <ion-icon slot="icon-only" [name]="setIcon(anime._id)"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" id="btnBack" (click)="irAtras()">
+            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+        <ion-grid *ngIf="!cargando" id="gridPrincipal">
+            <ion-row>
+                <div id="divHeader" *ngIf="!cargando">
+                    <div>
+                        <ion-img [src]="anime.fotoBackground" id="imgFondo"></ion-img>
+                        <div class="divSombreado"></div>
+                    </div>
+                    <div id="divInfo">
+                        <ion-grid *ngIf="!cargando">0
+                            <ion-row>
+                                <ion-col size="auto">
+                                    <ion-img [src]="anime.poster"></ion-img>
+                                </ion-col>
+                                <ion-col>
+                                    <h1 id="titulo">{{anime.nombre | titlecase}}</h1>
+                                    <ion-label>
+                                        <ion-grid>
+                                            <ion-row>
+                                                <ion-col class="iconCol">
+                                                    <ion-icon color="warning" name="language-outline"></ion-icon>
+                                                </ion-col>
+                                                <ion-col size="auto" class="textCol">
+                                                    <h4>
+                                                        {{anime.idioma | titlecase}}
+                                                    </h4>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row>
+                                                <ion-col class="iconCol">
+                                                    <ion-icon color="warning" name="albums-outline"></ion-icon>
+                                                </ion-col>
+                                                <ion-col size="auto" class="textCol">
+                                                    <h4>
+                                                        {{anime.temporadas.length}} Temporadas
+                                                    </h4>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row>
+                                                <ion-col class="iconCol">
+                                                    <ion-icon color="warning" name="calendar-outline"></ion-icon>
+                                                </ion-col>
+                                                <ion-col class="textCol">
+                                                    <h4>
+                                                        {{anime.fechaEstreno}}
+                                                    </h4>
+                                                </ion-col>
+                                            </ion-row>
+                                        </ion-grid>
+                                    </ion-label>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </div>
+                </div>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item id="itemSinopsis" class="itemDesc dark ion-activatable ripple-parent" lines="none" detail (click)="verSinopsis()">
+                        <h1>Sinopsis</h1>
+                        <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row id="listRow">
+                <ion-col>
+                    <ion-item id="itemSelect" class="ion-activatable ripple-parent dark">
+                        <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                        <ion-select class="transparente" [(ngModel)]="temporada" (ionChange)="selTemporada($event)" [interfaceOptions]="customAlertOptions" interface="action-sheet" mode="ios">
+                            <ion-select-option *ngFor="let temporada of anime.temporadas" value="{{temporada.temporada}}">Temporada {{temporada.temporada}}</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-content id="listContent">
+                        <ion-list class="dark" lines="none">
+                            <ion-item *ngFor="let episodio of episodios" detail class="itemEpisodio transparente animate__animated animate__fadeIn ion-activatable ripple-parent dark" (click)="verEpisodio(episodio)">
+                                <ion-thumbnail>
+                                    <img [src]="episodio.poster">
+                                </ion-thumbnail>
+                                <ion-img></ion-img>
+                                <ion-label>
+                                    <p class="numero">Episodio #{{episodio.numero}}</p>
+                                    <h2 class="nombre">{{episodio.nombre}}</h2>
+                                    <p class="duracion">Duracion: {{episodio.duracion}}</p>
+                                </ion-label>
+                                <ion-ripple-effect type="bounded"></ion-ripple-effect>
+                            </ion-item>
+                        </ion-list>
+                    </ion-content>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>
+<ion-spinner name="crescent" *ngIf="cargando" class="centrado"></ion-spinner>
+<app-mensaje-error *ngIf="errorHttp"></app-mensaje-error>

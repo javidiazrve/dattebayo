@@ -1,7 +1,11 @@
 {
-  "name": "anime4u",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
+    "name": "Dattebayo",
+    "integrations": {
+        "capacitor": {}
+    },
+    "type": "angular",
+    "proxies": [{
+        "path": "/ApiAnimes",
+        "proxyUrl": "http://192.168.1.2:3000/"
+    }]
 }

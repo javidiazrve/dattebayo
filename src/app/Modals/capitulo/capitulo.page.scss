@@ -1,0 +1,223 @@
+.video {
+    width: 100%;
+}
+
+ion-thumbnail {
+    width: 100px;
+    height: 100px;
+    --border-radius: 10px;
+}
+
+ion-grid,
+#rowVideo {
+    padding: 0;
+}
+
+.divSombreado {
+    width: 100%;
+    height: 100%;
+    background: black;
+}
+
+#rowEpisodios {
+    padding: 0;
+    #colEpAnterior {
+        padding-right: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        ion-label {
+            text-align: end;
+        }
+    }
+    #colEpSiguiente {
+        padding-left: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+#itemSinopsis {
+    --padding-start: 10px;
+    width: 100%;
+    --color-hover: white;
+    height: 70px;
+}
+
+.colChip {
+    ion-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: white !important;
+        ion-icon {
+            font-size: 15px !important;
+            margin-right: 5px;
+        }
+        p {
+            color: white;
+        }
+    }
+}
+
+#title {
+    margin: 0;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    color: white;
+}
+
+#gridInfo {
+    padding: 0;
+    ion-row,
+    ion-col {
+        padding: 0;
+    }
+}
+
+.temporada,
+.botones {
+    text-align: center;
+}
+
+.scroll {
+    height: 100%;
+}
+
+#rowSinopsis {
+    #itemSinopsis {
+        height: 70px;
+        ion-label {
+            height: 100%;
+        }
+        p {
+            text-align: justify;
+            color: white;
+            height: 250px;
+            overflow: auto;
+            padding: 5px;
+            margin: 0;
+        }
+        h5 {
+            margin: 0;
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: white;
+            padding-left: 5px;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+ion-grid {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    ion-row {
+        min-height: 50px;
+        ion-col {
+            ion-icon {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+#rowInfoEpisodio {
+    padding: 5px;
+}
+
+.itemEpisodios {
+    --padding-start: 5px;
+    --inner-padding-start: 0;
+    --inner-padding-end: 0;
+    --inner-border-width: 0;
+    ion-thumbnail {
+        width: 50px;
+        height: 50px;
+    }
+    ion-label {
+        margin-right: 15px !important;
+        margin-left: 15px !important;
+        p {
+            font-size: 10px;
+            color: white;
+        }
+        h2 {
+            font-size: 15px;
+        }
+    }
+    #iconDetail {
+        font-size: 20px;
+        margin: 0;
+        opacity: 0.2;
+    }
+}
+
+.IconCanon {
+    color: #00ff08;
+}
+
+.IconMedio {
+    color: yellow;
+}
+
+.IconRelleno {
+    color: red;
+}
+
+@media only screen and (min-width: 750px) {
+    .video {
+        height: 400px;
+    }
+    #title {
+        font-size: 25px;
+    }
+    #rowInfoEpisodio {
+        ion-thumbnail {
+            width: 150px;
+            height: 115px;
+        }
+    }
+    .labelSinopsis {
+        p {
+            font-size: 18px;
+            padding: 15px;
+        }
+    }
+    .colChip {
+        ion-label {
+            font-size: 20px;
+        }
+        #labelCanon {
+            p {
+                font-size: 20px;
+            }
+            ion-icon {
+                font-size: 25px !important;
+            }
+        }
+    }
+    .itemEpisodios {
+        padding: 10px;
+        ion-thumbnail {
+            width: 150px;
+            height: 100px;
+            object-fit: fill;
+        }
+        ion-label {
+            .numero,
+            .duracion {
+                font-size: 18px;
+            }
+            .nombre {
+                margin-top: 15px;
+                margin-bottom: 15px;
+                font-size: 20px;
+            }
+        }
+    }
+}

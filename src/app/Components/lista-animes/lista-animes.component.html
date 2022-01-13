@@ -1,0 +1,49 @@
+<ion-list class="dark">
+    <ion-item *ngFor="let anime of animes" lines="none" class="ion-activatable ripple-parent" detail (click)="verAnime(anime._id)">
+        <ion-ripple-effect type="bounded"></ion-ripple-effect>
+        <ion-thumbnail>
+            <img [src]="anime.poster">
+        </ion-thumbnail>
+        <ion-label>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="2" class="colFavorito">
+                        <ion-button fill="clear" class="btnFavorito" color="danger" (click)="switchFavorito(anime._id);$event.stopPropagation();">
+                            <ion-icon slot="icon-only" [name]="setIcon(anime._id)"></ion-icon>
+                        </ion-button>
+                    </ion-col>
+                    <ion-col></ion-col>
+                    <ion-col size="auto" class="colIdioma">
+                        <ion-row>
+                            <ion-col class="colIcon">
+                                <ion-icon color="warning" name="language-outline"></ion-icon>
+                            </ion-col>
+                            <ion-col class="colText">
+                                <h4>
+                                    {{anime.idioma | lowercase}}
+                                </h4>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="12" style="padding-left: 0;">
+                        <h1 class="tituloAnime">
+                            {{anime.nombre | titlecase}}
+                        </h1>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col class="colIcon">
+                        <ion-icon color="warning" name="albums-outline"></ion-icon>
+                    </ion-col>
+                    <ion-col class="colText">
+                        <h4>
+                            {{anime.temporadas.length}} Temporadas
+                        </h4>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-label>
+    </ion-item>
+</ion-list>

@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-button class="btnBack" fill="clear" (click)="cerrar()">
+        <ion-icon name="chevron-down-outline" slot="icon-only"></ion-icon>
+    </ion-button>
+    <ion-img [src]="fotoUrl"></ion-img>
+</ion-header>
+
+<ion-content class="dark" scrollY="false">
+
+    <ion-label>
+        <h3>Sinopsis</h3>
+        <p>
+            {{sinopsis}}
+        </p>
+    </ion-label>
+
+</ion-content>

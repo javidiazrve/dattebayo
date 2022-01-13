@@ -1,0 +1,13 @@
+.divVacio {
+    text-align: center;
+    ion-icon {
+        font-size: 60px;
+    }
+    ion-label {
+        h2 {
+            font-size: 25px;
+            width: 300px;
+        }
+    }
+    z-index: 10;
+}

@@ -1,0 +1,98 @@
+ion-list {
+    height: 100%;
+    width: 100%;
+    background: #222428;
+    overflow: auto;
+    ion-item {
+        --inner-padding-end: 0;
+        --padding-start: 0;
+        --background: transparent !important;
+        --detail-icon-font-size: 25px;
+        --detail-icon-color: white;
+        --detail-icon-opacity: 0.3;
+        padding: 5px;
+        ion-thumbnail {
+            min-width: 75px;
+            height: 100%;
+            --border-radius: 10px !important;
+            ion-img {
+                object-fit: contain;
+            }
+            ion-icon {
+                font-size: 100px;
+                color: dimgrey
+            }
+        }
+        ion-label {
+            height: 100%;
+            margin: 0;
+            padding-left: 10px;
+            color: white;
+        }
+        .colFavorito {
+            padding: 0;
+            .btnFavorito {
+                --border-radius: 150px;
+                margin: 0;
+                --padding-start: 5px;
+                --padding-end: 5px;
+                --padding-top: 5px;
+                height: auto;
+                --padding-bottom: 5px;
+                ion-icon {
+                    font-size: 25px;
+                }
+            }
+        }
+        .colIdioma {
+            padding-right: 0;
+            .colText {}
+        }
+        .colIcon {
+            text-align: center;
+            max-width: 20px;
+            padding-right: 0;
+            padding-left: 0;
+        }
+        .colText {}
+        .tituloAnime {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+ion-list {
+    background: transparent !important;
+    --background: transparent !important;
+}
+
+.divTarjeta {
+    ion-img {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    ion-item {
+        ion-thumbnail {
+            min-height: 100px;
+        }
+        .tituloAnime {
+            font-size: 30px;
+        }
+        .colFavorito {
+            ion-button {
+                ion-icon {
+                    font-size: 35px;
+                }
+            }
+        }
+        .colIdioma {
+            .colText {
+                font-size: 20px;
+            }
+        }
+    }
+}

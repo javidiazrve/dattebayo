@@ -1,0 +1,23 @@
+<ion-toolbar class="dark" mode="ios">
+    <h1 id="title">Animes</h1>
+    <ion-button fill="clear" slot="end" color="danger" (click)="irFavoritos()">
+        <ion-icon slot="icon-only" name="heart"></ion-icon>
+    </ion-button>
+</ion-toolbar>
+<ion-content class="dark">
+    <ion-refresher *ngIf="platform == 'android'" slot="fixed" (ionRefresh)="doRefresh($event)" pullMin="30" pullMax="35" pullFactor="1.5">
+        <ion-refresher-content slot="fixed">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-refresher id="refresherIos" *ngIf="platform == 'ios'" pullMax="70" slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="bubbles">
+        </ion-refresher-content>
+    </ion-refresher>
+    <app-lista-animes *ngIf="!cargando && !errorHttp" [animes]="animes"></app-lista-animes>
+    <app-lista-cargando *ngIf="cargando && !errorHttp"></app-lista-cargando>
+    <app-mensaje-vacio *ngIf="!cargando && !errorHttp && animes.length === 0"></app-mensaje-vacio>
+    <app-mensaje-error *ngIf="errorHttp && !cargando" (clickBtn)="getAnimes()"></app-mensaje-error>
+</ion-content>
+<ion-footer color="dark">
+    <ion-searchbar mode="ios" showCancelButton="focus" animated (ionChange)="buscar($event)"></ion-searchbar>
+</ion-footer>

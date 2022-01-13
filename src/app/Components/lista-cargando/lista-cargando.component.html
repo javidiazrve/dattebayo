@@ -1,0 +1,20 @@
+<ion-list class="dark">
+    <ion-item class="itemCargando dark" *ngFor="let rep of [].constructor(5)">
+        <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+            <h2>
+                <ion-skeleton-text animated></ion-skeleton-text>
+            </h2>
+        </ion-label>
+        <div class="divChips dark">
+            <ion-chip>
+                <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-chip>
+            <ion-chip>
+                <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-chip>
+        </div>
+    </ion-item>
+</ion-list>

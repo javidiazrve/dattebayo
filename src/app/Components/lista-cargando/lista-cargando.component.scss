@@ -1,0 +1,28 @@
+ion-list {
+    height: 100%;
+    width: 100%;
+    background: #222428;
+    overflow: auto;
+    ion-item {
+        height: 120px;
+        --padding-start: 0;
+        ion-thumbnail {
+            width: 100px;
+            height: 100px;
+        }
+        ion-label {
+            padding-left: 10px;
+        }
+        .divChips {
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            display: flex;
+        }
+    }
+}
+
+ion-list {
+    background: transparent !important;
+    --background: transparent !important;
+}

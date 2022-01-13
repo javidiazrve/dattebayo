@@ -1,0 +1,67 @@
+<ion-content class="dark" *ngIf="episodio" scrollY="false">
+    <ion-button fill="clear" color="light" class="btnBack" (click)="cerrar()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-grid>
+        <ion-row id="rowVideo">
+            <iframe class="video dark" [src]="videoUrl()" *ngIf="episodio.url" height="360" frameborder="0" allowfullscreen></iframe>
+        </ion-row>
+        <ion-row id="rowInfoEpisodio">
+            <ion-col size="auto">
+                <ion-thumbnail>
+                    <img [src]="episodio.poster">
+                </ion-thumbnail>
+            </ion-col>
+            <ion-col>
+                <p id="title">{{episodio.nombre | titlecase}}</p>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="colChip">
+                <ion-label>Temporada {{episodio.temporada}}</ion-label>
+            </ion-col>
+            <ion-col class="colChip">
+                <ion-label id="labelCanon">
+                    <ion-icon name="star" [ngStyle]="{'color': colorIcon()}"></ion-icon>
+                    <p>{{tipoEpisodio()}}</p>
+                </ion-label>
+            </ion-col>
+            <ion-col class="colChip">
+                <ion-label>Ep.{{episodio.numero}}</ion-label>
+            </ion-col>
+        </ion-row>
+        <ion-row style="flex-grow: 1;" id="rowSinopsis">
+            <ion-item id="itemSinopsis" class="itemDesc transparente ion-activatable ripple-parent dark" lines="none" detail (click)="verSinopsis()">
+                <h1>Sinopsis</h1>
+                <ion-ripple-effect type="bounded"></ion-ripple-effect>
+            </ion-item>
+        </ion-row>
+        <ion-row id="rowEpisodios">
+            <ion-col size="6" id="colEpAnterior">
+                <ion-item *ngIf="anteriorEp" class="itemEpisodios dark" (click)="verAnterior()" lines="none">
+                    <ion-icon name="chevron-back" slot="start" id="iconDetail"></ion-icon>
+                    <ion-label style="margin-right: 5px;">
+                        <p class="numero">Episodio #{{anteriorEp.numero}}</p>
+                        <h2 class="nombre">{{anteriorEp.nombre}}</h2>
+                        <p class="duracion">Duracion: {{anteriorEp.duracion}}</p>
+                    </ion-label>
+                    <ion-thumbnail>
+                        <img [src]="anteriorEp.poster">
+                    </ion-thumbnail>
+                </ion-item>
+            </ion-col>
+            <ion-col size="6" id="colEpSiguiente">
+                <ion-item *ngIf="siguienteEp" class="itemEpisodios dark" detail (click)="verSiguiente()">
+                    <ion-thumbnail>
+                        <img [src]="siguienteEp.poster">
+                    </ion-thumbnail>
+                    <ion-label style="margin-left: 5px;">
+                        <p class="numero">Episodio #{{siguienteEp.numero}}</p>
+                        <h2 class="nombre">{{siguienteEp.nombre}}</h2>
+                        <p class="duracion">Duracion: {{siguienteEp.duracion}}</p>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

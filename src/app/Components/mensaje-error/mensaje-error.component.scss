@@ -1,0 +1,23 @@
+.divError {
+    text-align: center;
+    ion-label {
+        ion-icon {
+            font-size: 70px;
+        }
+        h2 {
+            font-size: 25px;
+            color: white;
+        }
+        h2,
+        ion-icon {
+            margin-bottom: 20px;
+        }
+        ion-button {
+            width: 250px;
+            height: 50px;
+            font-weight: 700;
+            font-size: 15px;
+        }
+    }
+    z-index: 10;
+}

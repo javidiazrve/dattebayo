@@ -1,0 +1,16 @@
+<ion-content class="dark">
+    <ion-toolbar class="dark" mode="ios">
+        <ion-button slot="start" fill="clear" (click)="irAtras()">
+            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+        <h1 id="title">Favoritos</h1>
+    </ion-toolbar>
+    <div class="centrado" id="divVacio" *ngIf="!favoritos || favoritos.length == 0">
+        <ion-label style="text-align: center;">
+            <ion-icon name="heart-dislike" color="danger"></ion-icon>
+            <h1>No hay favoritos</h1>
+            <p>Agrega tus animes Preferidos y tenlos a la mano.</p>
+        </ion-label>
+    </div>
+    <app-lista-animes [animes]="favoritos" (refresh)="getFavoritos()" pagina="favoritos" *ngIf="favoritos"></app-lista-animes>
+</ion-content>
